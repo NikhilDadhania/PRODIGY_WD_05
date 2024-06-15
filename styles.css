@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #2193b0, #6dd5ed);
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(0);
+    animation: popIn 0.6s forwards;
+}
+
+@keyframes popIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+.input-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#locationInput {
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+#locationInput:focus {
+    transform: scale(1.1);
+}
+
+#fetchWeatherBtn {
+    padding: 15px 30px;
+    border-radius: 5px;
+    border: none;
+    background: #007BFF;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#fetchWeatherBtn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+#fetchWeatherBtn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.6s ease;
+}
+
+#fetchWeatherBtn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.weather-data {
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.weather-data div {
+    margin-bottom: 15px;
+    font-size: 18px;
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+    transform: translateX(-20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-data div:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.weather-data div:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.weather-data div:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.weather-data div:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.weather-data div:nth-child(5) {
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.weather-data .icon {
+    margin-right: 10px;
+    font-size: 24px;
+}
